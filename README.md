@@ -19,6 +19,13 @@ The app will be optimized for both Android and iOS devices. You will use Expo to
 ## Why 
 Mobile chat apps are among the most commonly downloaded and used apps in the world, so knowing how to build a chat app is an indispensable skill. The app will demonstrate your React Native development skills.
 
+
+![Screenshot_1708393312](https://github.com/ZachHuff01/chat-app/assets/133275000/4ee79c94-baee-4ad3-ae8b-054415f3eb73)
+
+
+![Screenshot_1708393309](https://github.com/ZachHuff01/chat-app/assets/133275000/b8228eed-9c22-4af1-826a-1dfd093a7268)
+
+
 ### User Stories 
 ● As a new user, I want to be able to easily enter a chat room so I can quickly start talking to my friends and family. ● As a user, I want to be able to send messages to my friends and family members to exchange the latest news. 
 ● As a user, I want to send images to my friends to show them what I’m currently doing. 
