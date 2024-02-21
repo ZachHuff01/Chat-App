@@ -3,7 +3,6 @@ import {
   StyleSheet, 
   View,  
   Text, 
-  Button, 
   TextInput, 
   ImageBackground,
   KeyboardAvoidingView,
@@ -83,9 +82,7 @@ const Start = ({ navigation }) => {
       </ImageBackground>
 
          {/* when typing, makes the keyboard not hide imput or information that would be behind it // padding should be used for ios instead of "height*/}
-         {Platform.OS === "ios" ? (
-        <KeyboardAvoidingView behavior="padding" />
-      ) : null}
+         {Platform.OS === "ios"?<KeyboardAvoidingView behavior="padding" /> : null}
 
     </View>
 
