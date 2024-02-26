@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { getAuth, signInAnonymously } from "firebase/auth";
 import {
   StyleSheet, 
   View,  
   Text, 
+  Alert,
   TextInput, 
   ImageBackground,
   KeyboardAvoidingView,
@@ -15,6 +17,18 @@ const imgBackGround = require("../assets/Background Image.png")
 const Start = ({ navigation }) => {
   const [background, setBackground] = useState('');
   const [name, setName] = useState('');
+  const auth = getAuth();
+
+  const signInUser = () => {
+    signInAnonymously(auth)
+      .then(result => {
+        navigation.navigate("Chat", { name: name, background: background, id: result.user.uid });
+        Alert.alert("Signed in Successfully!");
+      })
+      .catch((_error) => {
+        Alert.alert("Unable to sign in, try later again.");
+      })
+  }
  
 
   return (
@@ -74,7 +88,9 @@ const Start = ({ navigation }) => {
             </View>
           </View>
           {/* button to start chatting, links to chat.js */}
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Chat', {name:name , background:background})}>
+          <TouchableOpacity 
+          style={styles.button} 
+          onPress={signInUser}>
             <Text style={styles.buttonText}>Start Chatting</Text>
           </TouchableOpacity>
         </View>
