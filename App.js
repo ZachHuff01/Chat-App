@@ -10,6 +10,7 @@ import Chat from './components/Chat';
 // import Firestore
 import { initializeApp } from "firebase/app";
 import { getFirestore, disableNetwork, enableNetwork } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 
 // import react Navigation
@@ -36,8 +37,9 @@ const firebaseConfig = {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
-  // Initialize Cloud Firestore and get a reference to the service
+  // Initialize Cloud Firestore/Storage and get a reference to the service
   const db = getFirestore(app);
+  const storage = getStorage(app);
 
   // Network connectivity status
   useEffect(() => {
@@ -63,7 +65,11 @@ const firebaseConfig = {
           name="Chat"
         
         >
-          {props => <Chat isConnected={connectionStatus.isConnected} db={db} {...props} />}
+          {props => <Chat 
+            isConnected={connectionStatus.isConnected} 
+            db={db} 
+            storage={storage}
+            {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
 
